@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Cinema.Models.Screening>
+
+@{
+    ViewData["Title"] = "BookTicket";
+}
+
+<h1>Book Ticket</h1>
+
+<form asp-action="BookTicket">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DatetimeOfPlay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hall)
+            </th>
+            <th>
+                Available Seats
+            </th>
+            <th>
+                Tickets
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatetimeOfPlay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HallId)
+            </td>
+            <td>
+                Number of available seats goes here
+            </td>
+            <td>
+                        <input type="number" id="nos" name="nos" value="1" min="1" max="100" />
+            </td>
+            <td>
+                    <input type="submit"
+                               value="Book Ticket" asp-route-nos="Textbox.nos" asp-route-id="@item.Id" />
+                @* <a asp-action="BookTicket" asp-route-id="@item.Id">Book</a> *@
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>
+        </form>

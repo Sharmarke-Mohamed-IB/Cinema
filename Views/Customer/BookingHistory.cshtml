@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Cinema.Models.Reservation>
+
+@{
+    ViewData["Title"] = "BookingHistory";
+}
+
+<style>
+    .table thead {
+        background: rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        text-align: center;
+    }
+</style>
+<h1>Booking History</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Costumer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostumerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScrId)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,147 @@
+﻿@{
+    ViewData["Title"] = "Start page";
+}
+@model Cinema.Models.User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            height:100%;
+            width:100%;
+        }
+        .start-divs {
+            width: 1000px;
+            height: 500px;
+            display: flex;
+            justify-content: space-around;
+            align-items:center
+        }
+        .bs-example {
+            width:fit-content;
+            height: 400px;
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+            background: linear-gradient(to top,rgba(0,0,0,0.6) 0%, rgba(255,255,255,1) 70%);
+            border: 1px solid rgba(0,0,0,0.2);
+            padding:5px;
+        }
+        .title{
+            width:100%;
+            height:25%;
+            color:black;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            text-decoration:underline;
+        }
+
+        .insert-data{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sbmbtn {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:red;
+        }
+        .custom-btn{
+            width:100%;
+            height:100%;
+            font-size:20px;
+        }
+        .or-sp{
+            font-size:80px;
+            font-weight:bolder;
+        }
+        .error {
+            padding-left: 400px;
+            font-weight: bold;
+            width: 1000px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="start-divs">
+        @using (Html.BeginForm("login", "Account", FormMethod.Get))
+        {
+            <div class="bs-example">
+
+                <div class="form-group centerlook title">
+                    <h1> Login </h1>
+                </div>
+                <div class="insert-data">
+                    <div class="form-group centerlook">
+                        <label>Username: </label>
+                        @Html.EditorFor(model => model.Username)
+                        @Html.ValidationMessageFor(model => model.Username)
+                    </div>
+                    <div class="form-group centerlook">
+                        <label>Password:</label>
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+
+                    </div>
+                </div>
+                <div class="sbmbtn">
+                    <input type="submit" value="Login" class="custom-btn" />
+                </div>
+             </div>
+        }
+
+        <div class="or-sp">
+            OR
+        </div>
+
+        @using (Html.BeginForm("register", "Account", FormMethod.Post))
+        {
+           <div class="bs-example">
+
+                <div class="form-group centerlook title">
+                    <h1> Register </h1>
+                </div>
+                <div class="insert-data">
+                    <div class="form-group centerlook">
+                        <label>Username: </label>
+                        @Html.EditorFor(model => model.Username)
+                        @Html.ValidationMessageFor(model => model.Username)
+                    </div>
+                    <div class="form-group centerlook">
+                        <label>Password:</label>
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                    <div class="form-group centerlook">
+                        <label>Email:</label>
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="sbmbtn">
+                    <input type="submit" value="Register" class="custom-btn" />
+                </div>
+             </div>
+        }
+    </div>
+</body>
+</html>

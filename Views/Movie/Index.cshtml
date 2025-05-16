@@ -1,0 +1,26 @@
+@model IEnumerable<Cinema.Models.Movie>
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div class="container py-5">
+    <h2 class="text-center mb-4"></h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var movie in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="@movie.ImageUrl" class="card-img-top" alt="@movie.Title Poster" style="height: 400px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@movie.Title</h5>
+                        <p class="card-text"><strong>Type:</strong> @movie.Type</p>
+                        <p class="card-text"><strong>Director:</strong> @movie.Director</p>
+                        <p class="card-text"><strong>Summary:</strong> @movie.Summary</p>
+                        <p class="card-text"><strong>Length:</strong> @movie.Length mins</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

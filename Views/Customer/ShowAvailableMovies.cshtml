@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+@{
+    ViewData["Title"] = "ShowAvailableMovies";
+}
+
+<style>
+    .table thead {
+        background: rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        text-align: center;
+    }
+</style>
+<h1>Available Movies</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length) min
+            </td>
+            <td>
+                    <a asp-action="BookTicket" asp-route-id="@item.Id">Book Ticket</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

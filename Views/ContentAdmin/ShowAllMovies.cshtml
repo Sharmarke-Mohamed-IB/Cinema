@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+@{
+    ViewData["Title"] = "ShowAllMovies";
+}
+
+<style>
+    .table thead {
+        background: rgba(0,0,0,0.5);
+    }
+
+    p, h1 {
+        text-align: center;
+    }
+</style>
+
+<h1>Show All Movies</h1>
+
+<p>
+    <a asp-action="AddNewMovie">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Length)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                <a asp-action="AddNewScreening" asp-route-id="@item.Id">Add Screening</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

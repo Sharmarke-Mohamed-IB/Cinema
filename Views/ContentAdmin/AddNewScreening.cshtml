@@ -1,0 +1,42 @@
+﻿@model Cinema.Models.Screening
+
+@{
+    ViewData["Title"] = "AddNewScreening";
+}
+
+<h1>Add New Screening</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddNewScreening">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MovieId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.MovieId, (List<SelectListItem>)ViewBag.MovieId, "")
+                @* <select asp-for="MovieId" class ="form-control" asp-items="ViewBag.MovieId"></select> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="HallId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.HallId, (List<SelectListItem>)ViewBag.HallId, "")
+                @* <select asp-for="HallId" class ="form-control" asp-items="ViewBag.HallId"></select> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="DatetimeOfPlay" class="control-label"></label>
+                <input asp-for="DatetimeOfPlay" class="form-control" />
+                <span asp-validation-for="DatetimeOfPlay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShowScreenings">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

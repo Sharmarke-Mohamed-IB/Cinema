@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Hero Section -->
+<div class="container-fluid bg-dark text-white py-5" style="background: url('/images/cinema-bg.jpg') center/cover no-repeat;">
+    <div class="container text-center py-5 bg-dark bg-opacity-75 rounded">
+        <h1 class="display-3 fw-bold">Welcome to Cinema World</h1>
+        <p class="lead">Discover movies, book tickets, and enjoy an immersive cinema experience.</p>
+        <a class="btn btn-primary btn-lg mt-3" asp-controller="Movie" asp-action="Index">🎬 Browse Movies</a>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5">
+    <h2 class="text-center mb-4">🎥 Our Features</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Latest Movies</h5>
+                    <p class="card-text">Explore the newest releases and blockbusters now showing in our cinemas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Online Booking</h5>
+                    <p class="card-text">Reserve your seats online and avoid the queue. Fast and convenient!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Member Benefits</h5>
+                    <p class="card-text">Sign up to become a member and enjoy exclusive discounts and rewards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="bg-primary text-white text-center py-5">
+    <h2>Ready for Movie Night?</h2>
+    <p class="mb-4">Check out what's playing and book your tickets today!</p>
+    <a class="btn btn-light btn-lg" asp-controller="Movie" asp-action="Index">🎟️ See All Movies</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Cinema.Models.Screening>
+
+@{
+    ViewData["Title"] = "ShowScreenings";
+}
+
+<style>
+    .table thead {
+        background: rgba(0,0,0,0.5);
+    }
+
+    p, h1 {
+        text-align: center;
+    }
+</style>
+<h1>Show Screenings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hall)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatetimeOfPlay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HallId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatetimeOfPlay)
+            </td>
+            <td>
+                <a asp-action="EditScreening" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="DeleteScreening" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
