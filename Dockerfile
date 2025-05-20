@@ -10,7 +10,7 @@ RUN dotnet restore
 COPY . ./
 
 # Build and publish the release to the out directory
-RUN dotnet publish ./CinemaWebApp/CinemaWebApp.csproj -c Release -o /app/out
+RUN dotnet publish .CinemaWebApp.csproj -c Release -o /app/out
 
 
 # Use the ASP.NET Core Runtime image for running the app
